@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <form [formGroup]="personalInformations">
+
+      <div class="form-group">
+        <label>Skills</label>
+        <button type="button" class="btn btn-secondary btn-small m-2" (click)="addSkill()">Add skill</button>
+        <input formControlName="skill" type="text" class="form-control">
+        <div formArrayName="Skills" *ngFor="let skill of Skills.controls ; let i=index" class="d-flex">
+          <input type="text" class="form-control m-1" [formControlName]="i">
+          <button type="button" class="btn btn-secondary btn-small m-2" (click)="deleteSkill(i)">Delete</button>
+
+        </div>
+        
+      </div>
+
+      <div class="form-group">
+        <label>Professional Experiences</label>
+        <button type="button" class="btn btn-secondary btn-small m-2" (click)="addExperience()">Add profesional experience</button>
+        <input formControlName="experience" type="text" class="form-control">
+        <div formArrayName="ProfessionalExperience" *ngFor="let experience of ProfessionalExperience.controls ; let i=index" class="d-flex">
+          <input type="text" class="form-control m-1" [formControlName]="i">
+          <button type="button" class="btn btn-secondary btn-small m-2" (click)="deleteExperience(i)">Delete</button>
+
+        </div>
+        
+      </div>
+      
+    
+
+
+    </form>
+    
+  </div>
+ 
+</body>
+</html>
