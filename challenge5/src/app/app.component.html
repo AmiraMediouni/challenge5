@@ -18,10 +18,13 @@
             <small *ngIf="_skill!.errors?.['required']" class="text-danger">Skill is required</small>
             <small *ngIf="_skill!.errors?.['minlength'] " class="text-danger">Skill must be at least 10 characters</small>        
         </div>
-        <div formArrayName="Skills" *ngFor="let skill of Skills.controls ; let i=index" class="d-flex">
-          <input [class.is-invalid]="skill!.invalid && skill!.touched" type="text" class="form-control m-1" [formControlName]="i">
+        <div formArrayName="Skills" *ngFor="let skill of Skills.controls ; let i=index" >
+          <div class="d-flex">
+            <input [class.is-invalid]="skill!.invalid && skill!.touched" type="text" class="form-control m-1" [formControlName]="i">
           <button type="button" class="btn btn-secondary btn-small m-2" (click)="deleteSkill(i)">Delete</button>
-          <small *ngIf="skill!.errors?.['required']"  [class.d-none]="skill!.valid || skill!.untouched" class="text-danger"> Skill is required</small>
+         
+          </div>
+           <small *ngIf="skill!.errors?.['required']"  [class.d-none]="skill!.valid || skill!.untouched" class="text-danger"> Skill is required</small>
           <small *ngIf="skill!.errors?.['minlength']"  [class.d-none]="skill!.valid || skill!.untouched" class="text-danger"> Skill must be at least 10 charactersd</small>
 
         </div>
@@ -36,9 +39,12 @@
           <small *ngIf="_experience!.errors?.['required']" class="text-danger">Experience is required</small>
           <small *ngIf="_experience!.errors?.['minlength'] " class="text-danger">Experience must be at least 10 characters</small>        
       </div>
-        <div formArrayName="ProfessionalExperience" *ngFor="let experience of ProfessionalExperience.controls ; let i=index" class="d-flex">
-          <input [class.is-invalid]="experience!.invalid && experience!.touched" type="text" class="form-control m-1" [formControlName]="i">
-          <button type="button" class="btn btn-secondary btn-small m-2" (click)="deleteExperience(i)">Delete</button>
+        <div formArrayName="ProfessionalExperience" *ngFor="let experience of ProfessionalExperience.controls ; let i=index" >
+          <div class="d-flex">
+            <input [class.is-invalid]="experience!.invalid && experience!.touched" type="text" class="form-control m-1" [formControlName]="i">
+            <button type="button" class="btn btn-secondary btn-small m-2" (click)="deleteExperience(i)">Delete</button>
+           
+          </div>
             <small *ngIf="experience!.errors?.['required']"  [class.d-none]="experience!.valid || experience!.untouched" class="text-danger"> Experience is required</small>
             <small *ngIf="experience!.errors?.['minlength']"  [class.d-none]="experience!.valid || experience!.untouched" class="text-danger"> Experience must be at least 10 charactersd</small>
 

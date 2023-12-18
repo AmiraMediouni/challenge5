@@ -31,29 +31,33 @@ export class AppComponent {
   }
 
   addSkill(){
-    const control=new FormControl
+    /*const control=new FormControl
     this.Skills.push(control)
     control?.setValidators(Validators.required)
-    control?.addValidators(Validators.minLength(10))
+    control?.addValidators(Validators.minLength(10))*/
+    this.Skills.push(new FormControl('', [Validators.required, Validators.minLength(10)]));
 
 
   }
-  deleteSkill(i:number){
-    const a =this.Skills.controls[i]
+  /*deleteSkill(i:number){
     this.Skills.controls.splice(i,1)
+    
+  }*/
+  deleteSkill(i: any) {
+    this.Skills.removeAt(i);
   }
 
   addExperience(){
-    const control2=new FormControl
-    this.ProfessionalExperience.push(control2)
-    control2?.setValidators(Validators.required)
-    control2?.addValidators(Validators.minLength(10))
+    this.ProfessionalExperience.push(new FormControl('', [Validators.required, Validators.minLength(10)]));
+
 
   }
 
-  deleteExperience(i:number){
-    const b =this.ProfessionalExperience.controls[i]
+ /* deleteExperience(i:number){
     this.ProfessionalExperience.controls.splice(i,1)
+  }*/
+  deleteExperience(i:any){
+    this.ProfessionalExperience.removeAt(i)
   }
   
   
